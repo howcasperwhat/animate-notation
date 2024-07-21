@@ -1,0 +1,50 @@
+{
+  "name": "notation-stretcher",
+  "version": "0.1.1",
+  "description": "Create notations and control animations of it.",
+  "author": "Casper Huang",
+  "license": "MIT",
+  "main": "./build/index.mjs",
+  "module": "./build/index.mjs",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.mjs",
+      "require": "./build/index.cjs"
+    },
+    "./types": {
+      "types": "./build/types/index.d.ts",
+      "import": "./build/types/index.mjs",
+      "require": "./build/types/index.cjs"
+    },
+    "./path-generator": {
+      "types": "./build/path-generator/index.d.ts",
+      "import": "./build/path-generator/index.mjs",
+      "require": "./build/path-generator/index.cjs"
+    },
+    "./path-animator": {
+      "types": "./build/path-animator/index.d.ts",
+      "import": "./build/path-animator/index.mjs",
+      "require": "./build/path-animator/index.cjs"
+    }
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "roughjs": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "jsdom": "^24.1.0",
+    "tsup": "^8.1.0",
+    "vitest": "^1.6.0"
+  }
+}
