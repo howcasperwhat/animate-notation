@@ -1,10 +1,10 @@
 
-# Notation Stretcher
+# Animate Notation
 
 [![npm version][npm-version-src]][npm-version-href]
 [![License][license-src]][license-href]
 
-📖 [Document](https://howcasperwhat.github.io/notes/develop/More-Animatable-Notation#notation-stretcher)
+📖 [Document](https://howcasperwhat.github.io/notes/develop/More-Animatable-Notation#animate-notation)
 
 👀 Notation Likes [Rough Notation](https://github.com/rough-stuff/rough-notation).
 
@@ -21,7 +21,7 @@
 
 1. Mark name is more easy: `'o' | '_' | '=' | '-' | 'x' | '[]' | 'box'` instead of `'circle' | 'underline' | 'highlight' | 'strike-through' | 'crossed-off' | 'bracker' | 'box'`
 
-[npm-version-src]: https://img.shields.io/npm/v/notation-stretcher
-[npm-version-href]: https://npmjs.com/package/notation-stretcher
-[license-src]: https://img.shields.io/github/license/howcasperwhat/notation-stretcher.svg
-[license-href]: https://github.com/howcasperwhat/notation-stretcher/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/animate-notation
+[npm-version-href]: https://npmjs.com/package/animate-notation
+[license-src]: https://img.shields.io/github/license/howcasperwhat/animate-notation.svg
+[license-href]: https://github.com/howcasperwhat/animate-notation/blob/main/LICENSE
