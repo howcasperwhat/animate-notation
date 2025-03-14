@@ -8,7 +8,7 @@
 
 👀 Notation Likes [Rough Notation](https://github.com/rough-stuff/rough-notation).
 
-**Animation is available for `hide()` using this package.**
+**Animation is available for `hide()` in this package.**
 
 🚀 **New Feature**:
 
