@@ -1,4 +1,3 @@
-
 # Animate Notation
 
 [![npm version][npm-version-src]][npm-version-href]
