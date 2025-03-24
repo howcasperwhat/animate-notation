@@ -1,4 +1,4 @@
-import type { Drawable, Options as RoughOptions } from "roughjs/bin/core"
+import type { Drawable, Options as RoughOptions } from 'roughjs/bin/core'
 
 export type Paths = string[]
 
@@ -19,8 +19,7 @@ export type PathConstructor = OrConstructorOf<OrArrayOf<Path>>
 
 export type MarkType = 'o' | '_' | '=' | '-' | 'x' | '[]' | 'box'
 
-export type PathRoughOptions = Omit<RoughOptions,
-  'disableMultiStroke' | 'stroke' | 'strokeWidth' |
+export type PathRoughOptions = Omit<RoughOptions, 'disableMultiStroke' | 'stroke' | 'strokeWidth' |
   'fill' | 'fillStyle' | 'fillWeight'>
 
 export interface NotationOptions {

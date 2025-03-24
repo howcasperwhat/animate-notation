@@ -12,7 +12,7 @@ export default class StrokeAnimator {
   public constructor(
     path: SVGPathElement,
     trace: number = -1,
-    start: boolean = false
+    start: boolean = false,
   ) {
     this.path = path
     this.length = path.getTotalLength()
@@ -23,20 +23,23 @@ export default class StrokeAnimator {
   }
 
   private done() {
-    if (this.process === 'paint' && this.trace >= this.length) return true
-    if (this.process === 'erase' && this.trace <= 0) return true
+    if (this.process === 'paint' && this.trace >= this.length)
+      return true
+    if (this.process === 'erase' && this.trace <= 0)
+      return true
     return false
   }
 
   private clacInitTrace(trace: number) {
-    if (trace === -1) return this.length
+    if (trace === -1)
+      return this.length
     return trace
   }
 
   private update() {
     this.trace = Math.min(this.trace, this.length)
     this.trace = Math.max(this.trace, 0)
-    let offset = this.length - this.trace
+    const offset = this.length - this.trace
     this.path.style.strokeDashoffset = `${offset}px`
   }
 
@@ -46,9 +49,11 @@ export default class StrokeAnimator {
   }
 
   private calcStep(currentTime: number, previousTime: number) {
-    if (this.duration === 0) return this.length
+    if (this.duration === 0)
+      return this.length
     const rate = (currentTime - previousTime) / this.duration
-    if (rate >= 1) return this.length
+    if (rate >= 1)
+      return this.length
     return this.length * rate
   }
 
@@ -114,7 +119,8 @@ export default class StrokeAnimator {
   }
 
   public start() {
-    if (this.process !== 'freeze') return
+    if (this.process !== 'freeze')
+      return
     this.process = 'listen'
     this._listen()
   }

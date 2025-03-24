@@ -1,6 +1,6 @@
-import StrokeAnimator from './stroke-animator'
 import type { NotationOptions, PathConstructor } from './notation-types'
 import { DEFAULT_NOTATION_OPTIONS } from './notation-store'
+import StrokeAnimator from './stroke-animator'
 import { toPaths } from './utility'
 
 const SVG_NS = 'http://www.w3.org/2000/svg'
@@ -35,8 +35,7 @@ export default class PathAnimatior {
     return svg
   }
 
-  private createPath(data: string, color: string,
-    linecap: string, thickness: number, opacity: number) {
+  private createPath(data: string, color: string, linecap: string, thickness: number, opacity: number) {
     const path = document.createElementNS(SVG_NS, 'path')
     path.setAttribute('d', data)
     path.setAttribute('stroke', color)
@@ -54,7 +53,7 @@ export default class PathAnimatior {
   ) {
     this.options = {
       ...DEFAULT_NOTATION_OPTIONS,
-      ...options
+      ...options,
     }
 
     this.target = tar
@@ -72,11 +71,13 @@ export default class PathAnimatior {
         if (!Array.isArray(pcs)) {
           // Drawable
           this.pathDatas = toPaths(pcs)
-        } else {
+        }
+        else {
           // (string | Drawable)[]
-          this.pathDatas = pcs.map(pc => {
+          this.pathDatas = pcs.map((pc) => {
             // string
-            if (typeof pc === 'string') return [pc]
+            if (typeof pc === 'string')
+              return [pc]
             // Drawable
             else return toPaths(pc)
           }).flat()
@@ -109,7 +110,7 @@ export default class PathAnimatior {
         this.options.color,
         this.options.linecap,
         this.options.strokeWidth,
-        this.options.opacity
+        this.options.opacity,
       )
       paths.push(path)
       const length = path.getTotalLength()
@@ -119,6 +120,7 @@ export default class PathAnimatior {
     }
     return paths
   }
+
   private durationOf(idx: number) {
     return this.duration * this.pathLengths[idx] / this.pathsTotalLength
   }
@@ -145,7 +147,7 @@ export default class PathAnimatior {
   public show(duration: number = 1000) {
     this.duration = duration
     this.animators[this.cur].paint(
-      this.durationOf(this.cur)
+      this.durationOf(this.cur),
     )
   }
 
@@ -156,7 +158,7 @@ export default class PathAnimatior {
   public hide(duration: number = 1000) {
     this.duration = duration
     this.animators[this.cur].erase(
-      this.durationOf(this.cur)
+      this.durationOf(this.cur),
     )
   }
 

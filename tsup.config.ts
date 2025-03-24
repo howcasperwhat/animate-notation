@@ -8,9 +8,9 @@ export default defineConfig({
     'path-generator/index': 'src/path-generator.ts',
   },
   outDir: 'build',
-  format: ["cjs", "esm"],
+  format: ['cjs', 'esm'],
   dts: true,
   splitting: false,
   sourcemap: false,
   clean: true,
-});
+})

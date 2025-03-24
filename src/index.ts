@@ -1,12 +1,9 @@
-import { MarkType, NotationOptions, PathRoughOptions } from "./notation-types"
-import PathAnimatior from "./path-animator"
-import PathGenerator from "./path-generator"
+import type { MarkType, NotationOptions, PathRoughOptions } from './notation-types'
+import PathAnimatior from './path-animator'
+import PathGenerator from './path-generator'
 
-export const notate = (
-  target: HTMLElement,
-  mark: MarkType,
-  options?: Partial<NotationOptions & { rough: PathRoughOptions }>) => {
-  const o = options ? options : {}
+export function notate(target: HTMLElement, mark: MarkType, options?: Partial<NotationOptions & { rough: PathRoughOptions }>) {
+  const o = options || {}
   if (mark === '=') {
     o.linecap = 'butt'
     o.strokeWidth = target.getBoundingClientRect().height
@@ -15,7 +12,7 @@ export const notate = (
   const pa = new PathAnimatior(
     target,
     pg.d(mark, options?.brackets),
-    options
+    options,
   )
   return pa
 }
