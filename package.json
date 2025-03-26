@@ -1,7 +1,7 @@
 {
   "name": "animate-notation",
   "type": "module",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Create notations and control animations of it.",
   "author": "Casper Huang",
   "license": "MIT",
