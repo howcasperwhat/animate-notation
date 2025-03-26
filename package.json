@@ -8,22 +8,22 @@
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
-      "import": "./build/index.mjs",
+      "import": "./build/index.js",
       "require": "./build/index.cjs"
     },
     "./types": {
       "types": "./build/types/index.d.ts",
-      "import": "./build/types/index.mjs",
+      "import": "./build/types/index.js",
       "require": "./build/types/index.cjs"
     },
     "./path-generator": {
       "types": "./build/path-generator/index.d.ts",
-      "import": "./build/path-generator/index.mjs",
+      "import": "./build/path-generator/index.js",
       "require": "./build/path-generator/index.cjs"
     },
     "./path-animator": {
       "types": "./build/path-animator/index.d.ts",
-      "import": "./build/path-animator/index.mjs",
+      "import": "./build/path-animator/index.js",
       "require": "./build/path-animator/index.cjs"
     }
   },

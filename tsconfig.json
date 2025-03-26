@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ESNext",
     "lib": [
-      "es2017",
-      "dom"
+      "ESNext",
+      "DOM"
     ],
     "baseUrl": ".",
-    "module": "es2015",
+    "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
     "strictNullChecks": true,
@@ -15,8 +15,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "declaration": true,
-    "outDir": "./lib"
+    "declaration": true
   },
   "include": [
     "src/**/*.ts"
