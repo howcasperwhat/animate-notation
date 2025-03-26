@@ -1,4 +1,4 @@
-import type { Drawable, Options as RoughOptions } from 'roughjs/bin/core'
+import type { Drawable, Options as RoughOptions } from 'roughjs/bin/core.js'
 
 export type Paths = string[]
 

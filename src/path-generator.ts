@@ -1,5 +1,5 @@
 import type { MarkType, MultiBracket, PathConstructor, PathRoughOptions, SingleBracket } from './notation-types'
-import { RoughGenerator } from 'roughjs/bin/generator'
+import { RoughGenerator } from 'roughjs/bin/generator.js'
 import { DEFAULT_ROUGH_OPTIONS } from './notation-store'
 import { toPaths as tp } from './utility'
 

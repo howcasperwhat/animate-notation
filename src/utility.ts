@@ -1,4 +1,4 @@
-import type { Drawable, OpSet } from 'roughjs/bin/core'
+import type { Drawable, OpSet } from 'roughjs/bin/core.js'
 
 export function toPaths(d: Drawable) {
   return opsToPath(d.sets)

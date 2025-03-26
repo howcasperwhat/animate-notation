@@ -1,6 +1,6 @@
 import type { Options as RoughOptions } from 'roughjs/bin/core'
 import type { NotationOptions } from './notation-types'
-import { RoughGenerator } from 'roughjs/bin/generator'
+import { RoughGenerator } from 'roughjs/bin/generator.js'
 
 export const DEFAULT_ROUGH_OPTIONS: RoughOptions = {
   ...new RoughGenerator().defaultOptions,

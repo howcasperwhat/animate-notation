@@ -27,8 +27,8 @@
       "require": "./build/path-animator/index.cjs"
     }
   },
-  "main": "./build/index.mjs",
-  "module": "./build/index.mjs",
+  "main": "./build/index.js",
+  "module": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
     "build"
