@@ -38,9 +38,6 @@
     "lint": "eslint .",
     "test": "vitest"
   },
-  "peerDependencies": {
-    "roughjs": "^4.6.6"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
     "@types/node": "^22.13.13",
