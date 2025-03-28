@@ -2,6 +2,7 @@
   "name": "animate-notation",
   "type": "module",
   "version": "0.1.8",
+  "packageManager": "pnpm@10.7.0",
   "description": "Create notations and control animations of it.",
   "author": "Casper Huang",
   "license": "MIT",
@@ -36,16 +37,22 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint .",
-    "test": "vitest"
+    "test": "vitest",
+    "vue:dev": "npm -C examples/vue run dev",
+    "vue:build": "npm -C examples/vue run build",
+    "vue:preview": "npm -C examples/vue run preview",
+    "react:dev": "npm -C examples/react run dev",
+    "react:build": "npm -C examples/react run build",
+    "react:preview": "npm -C examples/react run preview"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.11.0",
-    "@types/node": "^22.13.13",
-    "eslint": "^9.23.0",
-    "jiti": "^2.4.2",
-    "jsdom": "^26.0.0",
-    "roughjs": "^4.6.6",
-    "tsup": "^8.4.0",
-    "vitest": "^3.0.9"
+    "@antfu/eslint-config": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "jsdom": "catalog:",
+    "roughjs": "catalog:",
+    "tsup": "catalog:",
+    "vitest": "catalog:"
   }
 }
