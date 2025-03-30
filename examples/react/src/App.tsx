@@ -1,39 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import viteLogo from '/vite.svg'
+import { useEffect, useRef } from 'react'
+import { notate } from 'animate-notation'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const target = useRef<HTMLDivElement>(null)
+  const vite =  useRef<ReturnType<typeof notate>>(null)
+  const react = useRef<ReturnType<typeof notate>>(null)
+  const title = useRef<HTMLHeadingElement>(null)
+  const animate = useRef<ReturnType<typeof notate>>(null)
+
+  useEffect(() => {
+    vite.current = notate(target.current!.children[0], 'o', {
+      opacity: 0.6,
+    })
+    react.current = notate(target.current!.children[1], 'box', {
+      opacity: 0.6,
+    })
+    animate.current = notate(title.current!, '=', {
+      opacity: 0.1,
+    })
+    return () => {
+      vite.current?.remove()
+      react.current?.remove()
+      animate.current?.remove()
+    }
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <div ref={target} className='container'>
+        <a href="https://vite.dev" target="_blank"
+          onMouseOver={() => vite.current?.show(600)}
+          onMouseOut={() => vite.current?.hide(200)}
+        >
+          <h2>Vite</h2>
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://react.dev" target="_blank"
+          onMouseOver={() => react.current?.show(600)}
+          onMouseOut={() => react.current?.hide(200)}
+        >
+          <h2>React</h2>
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is
-          {' '}
-          {count}
-        </button>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 ref={title}
+        onMouseOver={() => animate.current?.show(600)}
+        onMouseOut={() => animate.current?.hide(200)}
+      >
+        Vite + React
+      </h1>
     </>
   )
 }
