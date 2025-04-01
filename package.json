@@ -1,7 +1,7 @@
 {
   "name": "animate-notation",
   "type": "module",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "packageManager": "pnpm@10.7.0",
   "description": "Create notations and control animations of it.",
   "author": "Casper Huang",
