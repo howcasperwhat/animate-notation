@@ -15,7 +15,7 @@ export default class StrokeAnimator {
     start: boolean = false,
   ) {
     this.path = path
-    this.length = path.getTotalLength()
+    this.length = Math.ceil(path.getTotalLength())
     this.trace = this.clacInitTrace(trace)
     this.path.style.strokeDasharray = `${this.length}px`
     this.path.style.strokeDashoffset = `${this.length - this.trace}px`
