@@ -14,11 +14,11 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "animate-notation": "workspace:*",
     "@eslint/js": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "animate-notation": "workspace:*",
     "eslint": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",

@@ -1,10 +1,10 @@
-import './App.css'
-import { useEffect, useRef } from 'react'
 import { notate } from 'animate-notation'
+import { useEffect, useRef } from 'react'
+import './App.css'
 
 function App() {
   const target = useRef<HTMLDivElement>(null)
-  const vite =  useRef<ReturnType<typeof notate>>(null)
+  const vite = useRef<ReturnType<typeof notate>>(null)
   const react = useRef<ReturnType<typeof notate>>(null)
   const title = useRef<HTMLHeadingElement>(null)
   const animate = useRef<ReturnType<typeof notate>>(null)
@@ -28,21 +28,26 @@ function App() {
 
   return (
     <>
-      <div ref={target} className='container'>
-        <a href="https://vite.dev" target="_blank"
+      <div ref={target} className="container">
+        <a
+          href="https://vite.dev"
+          target="_blank"
           onMouseOver={() => vite.current?.show(600)}
           onMouseOut={() => vite.current?.hide(200)}
         >
           <h2>Vite</h2>
         </a>
-        <a href="https://react.dev" target="_blank"
+        <a
+          href="https://react.dev"
+          target="_blank"
           onMouseOver={() => react.current?.show(600)}
           onMouseOut={() => react.current?.hide(200)}
         >
           <h2>React</h2>
         </a>
       </div>
-      <h1 ref={title}
+      <h1
+        ref={title}
         onMouseOver={() => animate.current?.show(600)}
         onMouseOut={() => animate.current?.hide(200)}
       >
