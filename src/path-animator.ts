@@ -9,17 +9,18 @@ export default class PathAnimatior {
   private options: NotationOptions
 
   private target: HTMLElement
-  private svg: SVGSVGElement
-  private paths: SVGPathElement[]
+  private pcs: PathConstructor
+  private svg!: SVGSVGElement
+  private paths!: SVGPathElement[]
 
-  private animators: StrokeAnimator[]
+  private animators!: StrokeAnimator[]
 
-  private pathDatas: string[]
+  private pathDatas!: string[]
   private pathLengths: number[] = []
   private pathsTotalLength: number = 0
-  private cur: number
-  private rect: DOMRect
-  private duration: number
+  private cur!: number
+  private rect!: DOMRect
+  private duration!: number
 
   private createSVG() {
     const svg = document.createElementNS(SVG_NS, 'svg')
@@ -46,23 +47,18 @@ export default class PathAnimatior {
     return path
   }
 
-  public constructor(
-    tar: HTMLElement,
-    pcs: PathConstructor,
-    options?: Partial<NotationOptions>,
-  ) {
-    this.options = {
-      ...DEFAULT_NOTATION_OPTIONS,
-      ...options,
-    }
-
-    this.target = tar
-    this.rect = tar.getBoundingClientRect()
+  public reset(options?: Partial<NotationOptions>) {
+    Object.assign(this.options, options)
+    this.remove()
+    this.rect = this.target.getBoundingClientRect()
+    // eslint-disable-next-line no-console
+    console.log(this.rect)
 
     // pcs: string | Drawable | (string | Drawable)[] |
     //      (w: number, h: number) => string | Drawable | (string | Drawable)[]
-    if (typeof pcs === 'function')
-      pcs = pcs(this.rect.width, this.rect.height)
+    const pcs = typeof this.pcs === 'function'
+      ? this.pcs(this.rect.width, this.rect.height)
+      : this.pcs
     switch (typeof pcs) {
       case 'string':
         this.pathDatas = [pcs]
@@ -94,6 +90,20 @@ export default class PathAnimatior {
 
     this.animators = this.createAnimators()
     this.animators[this.cur].start()
+  }
+
+  public constructor(
+    tar: HTMLElement,
+    pcs: PathConstructor,
+    options?: Partial<NotationOptions>,
+  ) {
+    this.target = tar
+    this.pcs = pcs
+    this.options = {
+      ...DEFAULT_NOTATION_OPTIONS,
+      ...options,
+    }
+    this.reset(options)
   }
 
   private initTarget() {
@@ -163,8 +173,8 @@ export default class PathAnimatior {
   }
 
   public remove() {
-    this.animators.forEach(notation => notation.stop())
-    this.target.removeChild(this.svg)
+    this.animators && this.animators.forEach(notation => notation.stop())
+    this.target && this.svg && this.target?.removeChild(this.svg)
   }
 
   public onShowed(fn: () => void) {
