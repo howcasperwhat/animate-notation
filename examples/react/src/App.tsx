@@ -10,10 +10,10 @@ function App() {
   const animate = useRef<ReturnType<typeof notate>>(null)
 
   useEffect(() => {
-    vite.current = notate(target.current!.children[0], 'o', {
+    vite.current = notate(target.current!.children[0] as HTMLElement, 'o', {
       opacity: 0.6,
     })
-    react.current = notate(target.current!.children[1], 'box', {
+    react.current = notate(target.current!.children[1] as HTMLElement, 'box', {
       opacity: 0.6,
     })
     animate.current = notate(title.current!, '=', {

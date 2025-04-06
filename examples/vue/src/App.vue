@@ -8,10 +8,10 @@ const vue = ref<ReturnType<typeof notate> | null>(null)
 const title = ref<HTMLHeadingElement | null>(null)
 const animate = ref<ReturnType<typeof notate> | null>(null)
 onMounted(() => {
-  vite.value = notate(target.value!.children[0], 'o', {
+  vite.value = notate(target.value!.children[0] as HTMLElement, 'o', {
     opacity: 0.6,
   })
-  vue.value = notate(target.value!.children[1], 'box', {
+  vue.value = notate(target.value!.children[1] as HTMLElement, 'box', {
     opacity: 0.6,
   })
   animate.value = notate(title.value!, '=', {
