@@ -41,7 +41,7 @@ onUnmounted(() => {
     </a>
   </div>
   <h1
-    ref="title" @mouseover="animate?.show(600)"
+    ref="title" class="title" @mouseover="animate?.show(600)"
     @mouseleave="animate?.hide(200)" v-text="'Vite + Vue'"
   />
 </template>
@@ -61,5 +61,8 @@ onUnmounted(() => {
 .logo {
   height: 6em;
   padding: 1.5em;
+}
+.title {
+  width: 50vw;
 }
 </style>

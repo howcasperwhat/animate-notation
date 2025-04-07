@@ -6,7 +6,7 @@ import { toPaths } from './utility'
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
 export default class PathAnimatior {
-  private options: NotationOptions
+  private options!: NotationOptions
 
   private target: HTMLElement
   private pcs: PathConstructor
@@ -48,11 +48,9 @@ export default class PathAnimatior {
   }
 
   public reset(options?: Partial<NotationOptions>) {
-    Object.assign(this.options, options)
+    this.options = Object.assign(this.options ?? {}, options)
     this.remove()
     this.rect = this.target.getBoundingClientRect()
-    // eslint-disable-next-line no-console
-    console.log(this.rect)
 
     // pcs: string | Drawable | (string | Drawable)[] |
     //      (w: number, h: number) => string | Drawable | (string | Drawable)[]
@@ -99,11 +97,10 @@ export default class PathAnimatior {
   ) {
     this.target = tar
     this.pcs = pcs
-    this.options = {
+    this.reset({
       ...DEFAULT_NOTATION_OPTIONS,
       ...options,
-    }
-    this.reset(options)
+    })
   }
 
   private initTarget() {

@@ -47,7 +47,7 @@ function App() {
         </a>
       </div>
       <h1
-        ref={title}
+        ref={title} className='title'
         onMouseOver={() => animate.current?.show(600)}
         onMouseOut={() => animate.current?.hide(200)}
       >

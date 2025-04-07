@@ -2,12 +2,16 @@ import type { MarkType, NotationOptions, PathRoughOptions } from './notation-typ
 import PathAnimatior from './path-animator'
 import PathGenerator from './path-generator'
 
-export function notate(target: HTMLElement, mark: MarkType, options?: Partial<NotationOptions & { rough: PathRoughOptions }>) {
-  const o = options || {}
-  if (mark === '=') {
-    o.linecap = 'butt'
-    o.strokeWidth = target.getBoundingClientRect().height
-  }
+export function notate(
+  target: HTMLElement,
+  mark: MarkType,
+  options?: Partial<NotationOptions & { rough: PathRoughOptions, resizeTimer: number }>,
+) {
+  const o = options ?? {}
+  mark === '=' && Object.assign(o, {
+    linecap: 'butt',
+    strokeWidth: target.getBoundingClientRect().height,
+  })
   const pg = new PathGenerator(o.rough)
   const pa = new PathAnimatior(
     target,
@@ -15,10 +19,10 @@ export function notate(target: HTMLElement, mark: MarkType, options?: Partial<No
     options,
   )
   const handle = () => {
-    if (mark === '=') {
-      o.linecap = 'butt'
-      o.strokeWidth = target.getBoundingClientRect().height
-    }
+    mark === '=' && Object.assign(o, {
+      linecap: 'butt',
+      strokeWidth: target.getBoundingClientRect().height,
+    })
     pa.reset(o)
   }
   let timeout: Parameters<typeof clearTimeout>[0]
@@ -27,9 +31,8 @@ export function notate(target: HTMLElement, mark: MarkType, options?: Partial<No
       clearTimeout(timeout)
       timeout = undefined
     }
-    timeout = setTimeout(() => handle(), 100)
+    timeout = setTimeout(handle, options?.resizeTimer ?? 100)
   }
-  const ro = new ResizeObserver(() => trigger())
-  ro.observe(target)
+  new ResizeObserver(trigger).observe(target)
   return pa
 }
