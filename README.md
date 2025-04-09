@@ -9,12 +9,11 @@
 
 **Animation is available for `hide()` in this package.**
 
-🚀 **New Feature**:
+🚀 **New Features**:
 
-1. Animate of `show()` and `hide()` or not is up to you.
-2. Set animation duration whenever call `show()` and `hide()`
-3. You can stop animation when showing or hidding by calling `stop()`
-4. You can custom a notation shape.
+1. Set animation duration whenever call `show()` and `hide()`
+2. Stop animation whenever you want.
+3. Customize a notation shape.
 
 🔧 **Changes**:
 
