@@ -25,10 +25,10 @@ export type PathRoughOptions = Omit<RoughOptions, 'disableMultiStroke' | 'stroke
 export interface NotationOptions {
   linecap: CanvasLineCap
   zIndexOffset: number
-  color: string // defaults to currentColor
+  color: string // default to currentColor
   strokeWidth: number // default based on type
-  iterations: number // defaults to 1
-  brackets: MultiBracket // 'lrtb' defaults to 0b1100
-  opacity: number // defaults to 1
+  iterations: number // default to 1
+  brackets: MultiBracket // 'lrtb' default to 0b1100
+  opacity: number // default to 1
   class: string
 }

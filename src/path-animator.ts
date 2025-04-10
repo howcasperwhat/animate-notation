@@ -172,6 +172,8 @@ export default class PathAnimatior {
   public remove() {
     this.animators && this.animators.forEach(notation => notation.stop())
     this.target && this.svg && this.target?.removeChild(this.svg)
+    this.pathLengths = []
+    this.pathsTotalLength = 0
   }
 
   public onShowed(fn: () => void) {

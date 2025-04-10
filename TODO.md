@@ -3,4 +3,3 @@
     at PathAnimatior.reset (index.js:1992:10)
     at handle (index.js:2205:8)`
 
-- [ ] Duration time will decrease when resize the target element.
